@@ -23,7 +23,7 @@ with open("./Big_Data/Source/Data_Analyst.json", "r") as file:
     while True:
         # Send each row as a JSON message
         for row in data:
-            producer.send(topic=topic_name, value=data)
-            print("Sending...", data)
+            producer.send(topic=topic_name, value=row)
+            print("Sending...", row)
 
         sleep(7200)  # Pause before next send cycle
