@@ -16,14 +16,14 @@ producer = KafkaProducer(
 
 topic_name = "Data_Engineer"
 
-with open("./Big_Data/Source/Data_Engineer.json", "r") as file:
+with open("./Big_Data/Source/Data_Engineer_data.json", "r") as file:
     data = json.load(file)
 
     # Loop infinitely, sending data every 2 hours
     while True:
         # Send each row as a JSON message
         for row in data:
-            producer.send(topic=topic_name, value=data)
-            print("Sending...", data)
+            producer.send(topic=topic_name, value=row)
+            print("Sending...", row)
 
         sleep(7200)  # Pause before next send cycle
